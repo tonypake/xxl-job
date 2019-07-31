@@ -1,7 +1,6 @@
 package com.xxl.job.core.biz.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created by xuxueli on 16/7/22.
@@ -13,15 +12,19 @@ public class TriggerParam implements Serializable{
 
     private String executorHandler;
     private String executorParams;
+    private String executorBlockStrategy;
+    private int executorTimeout;
+
+    private long logId;
+    private long logDateTim;
 
     private String glueType;
     private String glueSource;
     private long glueUpdatetime;
 
-    private int logId;
-    private long logDateTim;
+    private int broadcastIndex;
+    private int broadcastTotal;
 
-    private Set<String> logAddress;
 
     public int getJobId() {
         return jobId;
@@ -45,6 +48,38 @@ public class TriggerParam implements Serializable{
 
     public void setExecutorParams(String executorParams) {
         this.executorParams = executorParams;
+    }
+
+    public String getExecutorBlockStrategy() {
+        return executorBlockStrategy;
+    }
+
+    public void setExecutorBlockStrategy(String executorBlockStrategy) {
+        this.executorBlockStrategy = executorBlockStrategy;
+    }
+
+    public int getExecutorTimeout() {
+        return executorTimeout;
+    }
+
+    public void setExecutorTimeout(int executorTimeout) {
+        this.executorTimeout = executorTimeout;
+    }
+
+    public long getLogId() {
+        return logId;
+    }
+
+    public void setLogId(long logId) {
+        this.logId = logId;
+    }
+
+    public long getLogDateTim() {
+        return logDateTim;
+    }
+
+    public void setLogDateTim(long logDateTim) {
+        this.logDateTim = logDateTim;
     }
 
     public String getGlueType() {
@@ -71,27 +106,39 @@ public class TriggerParam implements Serializable{
         this.glueUpdatetime = glueUpdatetime;
     }
 
-    public int getLogId() {
-        return logId;
+    public int getBroadcastIndex() {
+        return broadcastIndex;
     }
 
-    public void setLogId(int logId) {
-        this.logId = logId;
+    public void setBroadcastIndex(int broadcastIndex) {
+        this.broadcastIndex = broadcastIndex;
     }
 
-    public long getLogDateTim() {
-        return logDateTim;
+    public int getBroadcastTotal() {
+        return broadcastTotal;
     }
 
-    public void setLogDateTim(long logDateTim) {
-        this.logDateTim = logDateTim;
+    public void setBroadcastTotal(int broadcastTotal) {
+        this.broadcastTotal = broadcastTotal;
     }
 
-    public Set<String> getLogAddress() {
-        return logAddress;
+
+    @Override
+    public String toString() {
+        return "TriggerParam{" +
+                "jobId=" + jobId +
+                ", executorHandler='" + executorHandler + '\'' +
+                ", executorParams='" + executorParams + '\'' +
+                ", executorBlockStrategy='" + executorBlockStrategy + '\'' +
+                ", executorTimeout=" + executorTimeout +
+                ", logId=" + logId +
+                ", logDateTim=" + logDateTim +
+                ", glueType='" + glueType + '\'' +
+                ", glueSource='" + glueSource + '\'' +
+                ", glueUpdatetime=" + glueUpdatetime +
+                ", broadcastIndex=" + broadcastIndex +
+                ", broadcastTotal=" + broadcastTotal +
+                '}';
     }
 
-    public void setLogAddress(Set<String> logAddress) {
-        this.logAddress = logAddress;
-    }
 }

@@ -1,7 +1,6 @@
 package com.xxl.job.core.biz.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * Created by xuxueli on 17/3/2.
@@ -9,31 +8,32 @@ import java.util.Set;
 public class HandleCallbackParam implements Serializable {
     private static final long serialVersionUID = 42L;
 
-    private int logId;
-    private Set<String> logAddress;
+    private long logId;
+    private long logDateTim;
 
     private ReturnT<String> executeResult;
 
-    public HandleCallbackParam(int logId, Set<String> logAddress, ReturnT<String> executeResult) {
+    public HandleCallbackParam(){}
+    public HandleCallbackParam(long logId, long logDateTim, ReturnT<String> executeResult) {
         this.logId = logId;
-        this.logAddress = logAddress;
+        this.logDateTim = logDateTim;
         this.executeResult = executeResult;
     }
 
-    public int getLogId() {
+    public long getLogId() {
         return logId;
     }
 
-    public void setLogId(int logId) {
+    public void setLogId(long logId) {
         this.logId = logId;
     }
 
-    public Set<String> getLogAddress() {
-        return logAddress;
+    public long getLogDateTim() {
+        return logDateTim;
     }
 
-    public void setLogAddress(Set<String> logAddress) {
-        this.logAddress = logAddress;
+    public void setLogDateTim(long logDateTim) {
+        this.logDateTim = logDateTim;
     }
 
     public ReturnT<String> getExecuteResult() {
@@ -43,4 +43,14 @@ public class HandleCallbackParam implements Serializable {
     public void setExecuteResult(ReturnT<String> executeResult) {
         this.executeResult = executeResult;
     }
+
+    @Override
+    public String toString() {
+        return "HandleCallbackParam{" +
+                "logId=" + logId +
+                ", logDateTim=" + logDateTim +
+                ", executeResult=" + executeResult +
+                '}';
+    }
+
 }
